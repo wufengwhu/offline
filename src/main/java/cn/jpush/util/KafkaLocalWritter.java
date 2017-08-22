@@ -29,7 +29,7 @@ import java.util.List;
  * Created by fengwu on 15/4/22.
  */
 
-public abstract class KafkaLocalWritter  implements Runnable {
+public abstract class KafkaLocalWritter implements Runnable {
     protected static final Logger LOG = Logger.getLogger(KafkaLocalWritter.class);
     public static final String TEMP = ".tmp.";
     public static final String UNKNOWN = "unknown";
@@ -40,7 +40,8 @@ public abstract class KafkaLocalWritter  implements Runnable {
     private String localPath;
     private String hdfsPath;
 
-    public KafkaLocalWritter(KafkaStream stream, int threadNumber, boolean merge, String pathL, String pathH) {
+    public KafkaLocalWritter(KafkaStream stream, int threadNumber,
+                             boolean merge, String pathL, String pathH) {
         this.stream = stream;
         this.threadNumber = threadNumber;
         this.merge = merge;
@@ -140,7 +141,7 @@ public abstract class KafkaLocalWritter  implements Runnable {
                     LOG.debug("read record: " + record);
                     List<String> lines = parseRecord(record, mapper);
                     if (!lines.isEmpty()) {
-                        for(String line : lines){
+                        for (String line : lines) {
                             writer.println(line);
                         }
                     }

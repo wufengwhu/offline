@@ -10,7 +10,7 @@ public class FileWatchServiceDemo {
     static {
         try{
             fileName = "application.properties";
-            resource = new ClassPathResource
+//            resource = new ClassPathResource
 
         }catch (Exception e){
 

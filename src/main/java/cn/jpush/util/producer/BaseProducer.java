@@ -76,7 +76,8 @@ public class BaseProducer {
     public static void writeJsonFile(File file, CrashLogAvro[] crashLogAvros) {
         try {
             GenericDatumWriter writer = new GenericDatumWriter(CrashLogAvro.crashLogSchema);
-            JsonEncoder e = EncoderFactory.get().jsonEncoder(CrashLogAvro.crashLogSchema, new FileOutputStream(file));
+            JsonEncoder e = EncoderFactory.get().jsonEncoder(CrashLogAvro.crashLogSchema,
+                    new FileOutputStream(file));
 
             for (CrashLogAvro crashLogAvro : crashLogAvros)
                 writer.write(crashLogAvro.serialize(), e);
